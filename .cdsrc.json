@@ -1,0 +1,20 @@
+{
+  "User1" : {
+      "ID" : "riskviewer",
+      "password" : "initial",
+      "roles":["RiskViewer"],
+      "userattributes" :{
+         "email" : "risk.viewer@tester.sap.com" 
+      }
+      
+  },
+  "User2" : {
+    "ID" : "riskmanager",
+    "password" : "initial",
+    "roles": ["RiskManager"],
+    "userattributes" :{
+       "email" : "risk.managerr@tester.sap.com" 
+    }
+   
+}
+ }
