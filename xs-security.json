@@ -1,5 +1,7 @@
 {
-  "scopes": [],
-  "attributes": [],
-  "role-templates": []
-}
+    "xsappname": "risk-management2-dev",
+    "tenant-mode": "dedicated",
+    "scopes": [],
+    "attributes": [],
+    "role-templates": []
+  }

@@ -13,13 +13,13 @@ applications:
   memory: 256M
   buildpack: nodejs_buildpack
   services:
-  - risk-management2-db
-  - risk-management2-xsuaa
+  - risk-management-db
+  - risk-management-xsuaa
 
 # -----------------------------------------------------------------------------------
 # HANA Database Content Deployer App
 # -----------------------------------------------------------------------------------
-- name: risk-management2-db-deployer
+- name: risk-management-db-deployer
   path: gen/db
   no-route: true
   health-check-type: process
@@ -27,4 +27,4 @@ applications:
   instances: 1
   buildpack: nodejs_buildpack
   services:
-  - risk-management2-db
+  - risk-management-db
