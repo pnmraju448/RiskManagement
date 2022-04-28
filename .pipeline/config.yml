@@ -40,3 +40,24 @@ stages:
 #        appName: 'myAppName'
 #        manifest: 'manifest.yml'
 #        credentialsId: 'myDeploymentCredentialsId'
+
+Build:
+ mavenExecuteStaticCodeChecks: false
+ npmExecuteLint: false
+ Additional Unit Tests:
+ npmExecuteScripts: false
+ karmaExecuteTests: false
+ Release:
+ cloudFoundryDeploy: true
+ tmsUpload: false
+steps:
+ cloudFoundryDeploy: 
+  cloudFoundry:
+  apiEndpoint: "https://api.cf.us10.hana.ondemand.com" 
+  org: "05bfa961trial"
+  space: "dev"
+  credentialId: "cfdeploy"
+  appName: ""
+  mtaDeployParameters: '-f --version-rule ALL"
+  artifactPrepareVersion:
+  versioningType: "cloud_noTag"
