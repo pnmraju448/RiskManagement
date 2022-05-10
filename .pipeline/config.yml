@@ -1,5 +1,5 @@
 ###
-# This file configures the project "Piper" pipeline of your project.
+# This file configures the project “Piper” pipeline of your project.
 # For a reference of the configuration concept and available options, please have a look into its documentation.
 #
 # The documentation for the most recent pipeline version can always be found at:
@@ -8,56 +8,29 @@
 # This is a YAML-file. YAML is an indentation-sensitive file format. Please make sure to properly indent changes to it.
 ###
 
-
-
 ### General project setup
+---
 general:
-  inferBuildTool: true
-
-### Step-specific configuration
-steps:
-  mavenExecute:
-    dockerImage: devxci/mbtci:1.0.14
-
-  artifactPrepareVersion:
-    versioningType: cloud_noTag
-
-### Stage-specific configuration
+  pipeline: "sap-cloud-sdk"
+  buildTool: "mta"
 stages:
-  'Confirm':
-    manualConfirmation: false
-
-#  Integration:
-#    credentials:
-#      - alias: 'mySystemAlias'
-#        credentialId: 'cfdeploy'
-
-#  Release:
-#    cfTargets:
-#      - org: '05bfa961trial'
-#        space: 'dev'
-#        apiEndpoint: 'https://api.cf.us10.hana.ondemand.com'
-#        appName: 'myAppName'
-#        manifest: 'manifest.yml'
-#        credentialsId: 'myDeploymentCredentialsId'
-
-Build:
- mavenExecuteStaticCodeChecks: false
- npmExecuteLint: false
- Additional Unit Tests:
- npmExecuteScripts: false
- karmaExecuteTests: false
- Release:
- cloudFoundryDeploy: true
- tmsUpload: false
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: false
+  Additional Unit Tests:
+    npmExecuteScripts: false
+    karmaExecuteTests: false
+  Release:
+    cloudFoundryDeploy: true
+    tmsUpload: false
 steps:
- cloudFoundryDeploy: 
-  cloudFoundry:
-  apiEndpoint: "https://api.cf.us10.hana.ondemand.com" 
-  org: "05bfa961trial"
-  space: "dev"
-  credentialId: "cfdeploy"
-  appName: ""
-  mtaDeployParameters: '-f --version-rule ALL"
+  cloudFoundryDeploy:
+    cloudFoundry:
+      apiEndpoint: "https://api.cf.us10.hana.ondemand.com" # please verify if this is your API endpoint. If not, please change it
+      org: "05bfa961trial" # add your org here
+      space: "dev" # add your space here
+      credentialsId: "cfdeploy"
+      appName: ""
+    mtaDeployParameters: "-f --version-rule ALL"
   artifactPrepareVersion:
-  versioningType: "cloud_noTag"
+    versioningType: "cloud_noTag" 
